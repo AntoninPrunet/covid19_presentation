@@ -1,0 +1,98 @@
+---
+title       : covid19 App Presentation
+subtitle    : 
+author      : Antonin Prunet
+date        : 2020-06-27
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Getting Started
+
+
+```{r echo=FALSE}
+library(dplyr, quiet=TRUE)
+library(lubridate, quiet=TRUE)
+
+
+data <- read.csv("data/covid_data.csv")[,2:8]
+data$date <- ymd(data$date)
+
+data1 <- filter(data,
+                location %in% c("France","Germany","Italy"),
+                variable == "Total Deaths")
+
+data2 <- filter(data,
+                date == ymd("2020-06-02"),
+                variable == "Total Deaths")
+
+```
+
+- The objective of our application is to visualize the evolution of covid19 epidemic around the world.
+
+- The initial data originates from a csv file that can be found on [Our world in data website](https://covid.ourworldindata.org/data/owid-covid-data.csv).
+
+- But we finally work with this processed data file that can be found on [github](https://github.com/AntoninPrunet/covid19/blob/master/data/covid_data.csv).
+
+- [User interface](https://github.com/AntoninPrunet/covid19/blob/master/ui.R) and [server](https://github.com/AntoninPrunet/covid19/blob/master/server.R) files for the app can also be found on the same [github repository](https://github.com/AntoninPrunet/covid19).
+
+- To get started, you can play with the date slider on the left sidebar panel, change the selected countries you wish to observe in the first chart and modify the three other parameters which result in `2^3 = 8` different kinds of observations.
+
+---
+
+## Architecture of the application
+
+
+
+`ui.R`
+
+
+- Loading the required libraries and data.
+
+- Definition of a Sidebar Panel with multiple inputs (`date`, `country`, `type`, `new` and `ratio`).
+
+- And definition of a main Panel with two outputs (`plot` and `geo`).
+
+
+
+`server.R`
+
+- Loading the required libraries and data.
+
+- Creation of two reactive variables: `selected_data1` for the first chart and `selected_data2` for the second chart.
+
+- Building each one of the two outputs (`plot` and `geo`).
+
+
+---
+
+## Plotly output for `plot`
+
+```{r fig.height=4, fig.align="center", fig.height=4.2, fig.width=9}
+library(plotly, quiet=TRUE)
+library(ggplot2, quiet=TRUE)
+p <- ggplot(data = data1, aes(date, value, color=location)) +
+            geom_line() + ylab("Total Deaths") +
+            geom_vline(xintercept = as.numeric(ymd("2020-06-02"))) + theme_bw()
+ggplotly(p)
+```
+
+
+
+---
+## GoogleVis Output
+```{r, echo = TRUE, message = FALSE, results = 'asis'}
+library(googleVis)
+geo <- gvisGeoChart(data2,
+                  locationvar = "location",
+                  colorvar = "value",
+                  option = list(projection="kavrayskiy-vii",
+                                colorAxis="{colors:['white','brown']}",
+                                height = 300, width = 900))
+plot(geo, tag = 'chart')
+```
