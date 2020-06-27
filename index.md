@@ -48,7 +48,7 @@ knit        : slidify::knit2slides
 
 - The initial data originates from a csv file that can be found on [Our world in data website](https://covid.ourworldindata.org/data/owid-covid-data.csv).
 
-- But we finally work with this processed data file that can be found on [github](https://github.com/AntoninPrunet/covid19/blob/master/data/covid_data.csv).
+- But we finally work with this processed data file that can be found on [github](https://github.com/AntoninPrunet/covid19_presentation/blob/master/data/covid_data.csv).
 
 - [User interface](https://github.com/AntoninPrunet/covid19_presentation/blob/master/ui.R) and [server](https://github.com/AntoninPrunet/covid19_presentation/blob/master/server.R) files for the app can also be found on the same [github repository](https://github.com/AntoninPrunet/covid19_presentation).
 
