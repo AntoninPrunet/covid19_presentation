@@ -51,11 +51,34 @@
   </hgroup>
   
   <article data-timings="">
-    <ul>
+    <pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union
+</code></pre>
+
+<ul>
 <li><p>The objective of our application is to visualize the evolution of covid19 epidemic around the world.</p></li>
 <li><p>The initial data originates from a csv file that can be found on <a href="https://covid.ourworldindata.org/data/owid-covid-data.csv">Our world in data website</a>.</p></li>
 <li><p>But we finally work with this processed data file that can be found on <a href="https://github.com/AntoninPrunet/covid19/blob/master/data/covid_data.csv">github</a>.</p></li>
-<li><p><a href="https://github.com/AntoninPrunet/covid19/blob/master/ui.R">User interface</a> and <a href="https://github.com/AntoninPrunet/covid19/blob/master/server.R">server</a> files for the app can also be found on the same <a href="https://github.com/AntoninPrunet/covid19">github repository</a>.</p></li>
+<li><p><a href="https://github.com/AntoninPrunet/covid19_presentation/blob/master/ui.R">User interface</a> and <a href="https://github.com/AntoninPrunet/covid19_presentation/blob/master/server.R">server</a> files for the app can also be found on the same <a href="https://github.com/AntoninPrunet/covid19_presentation">github repository</a>.</p></li>
 <li><p>To get started, you can play with the date slider on the left sidebar panel, change the selected countries you wish to observe in the first chart and modify the three other parameters which result in <code>2^3 = 8</code> different kinds of observations.</p></li>
 </ul>
 
@@ -100,7 +123,28 @@
   
   <article data-timings="">
     <pre><code class="r">library(plotly, quiet=TRUE)
-library(ggplot2, quiet=TRUE)
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout
+</code></pre>
+
+<pre><code class="r">library(ggplot2, quiet=TRUE)
 p &lt;- ggplot(data = data1, aes(date, value, color=location)) +
             geom_line() + ylab(&quot;Total Deaths&quot;) +
             geom_vline(xintercept = as.numeric(ymd(&quot;2020-06-02&quot;))) + theme_bw()
@@ -133,14 +177,14 @@ plot(geo, tag = &#39;chart&#39;)
 
 <!-- GeoChart generated in R 3.6.3 by googleVis 0.6.5 package -->
 
-<!-- Sat Jun 27 05:54:55 2020 -->
+<!-- Sat Jun 27 06:52:56 2020 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID76102bbdfbb8 () {
+function gvisDataGeoChartID7add4b0e57a7 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -988,8 +1032,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID76102bbdfbb8() {
-var data = gvisDataGeoChartID76102bbdfbb8();
+function drawChartGeoChartID7add4b0e57a7() {
+var data = gvisDataGeoChartID7add4b0e57a7();
 var options = {};
 options["width"] = 900;
 options["height"] = 300;
@@ -997,7 +1041,7 @@ options["projection"] = "kavrayskiy-vii";
 options["colorAxis"] = {colors:['white','brown']};
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID76102bbdfbb8')
+    document.getElementById('GeoChartID7add4b0e57a7')
     );
     chart.draw(data,options);
     
@@ -1021,9 +1065,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID76102bbdfbb8);
+callbacks.push(drawChartGeoChartID7add4b0e57a7);
 })();
-function displayChartGeoChartID76102bbdfbb8() {
+function displayChartGeoChartID7add4b0e57a7() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1049,12 +1093,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID76102bbdfbb8"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID7add4b0e57a7"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoChartID76102bbdfbb8" 
+<div id="GeoChartID7add4b0e57a7" 
   style="width: 900; height: 300;">
 </div>
 

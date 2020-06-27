@@ -39,7 +39,7 @@ data2 <- filter(data,
 
 - But we finally work with this processed data file that can be found on [github](https://github.com/AntoninPrunet/covid19/blob/master/data/covid_data.csv).
 
-- [User interface](https://github.com/AntoninPrunet/covid19/blob/master/ui.R) and [server](https://github.com/AntoninPrunet/covid19/blob/master/server.R) files for the app can also be found on the same [github repository](https://github.com/AntoninPrunet/covid19).
+- [User interface](https://github.com/AntoninPrunet/covid19_presentation/blob/master/ui.R) and [server](https://github.com/AntoninPrunet/covid19_presentation/blob/master/server.R) files for the app can also be found on the same [github repository](https://github.com/AntoninPrunet/covid19_presentation).
 
 - To get started, you can play with the date slider on the left sidebar panel, change the selected countries you wish to observe in the first chart and modify the three other parameters which result in `2^3 = 8` different kinds of observations.
 

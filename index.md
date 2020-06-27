@@ -16,6 +16,33 @@ knit        : slidify::knit2slides
 
 
 
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```
+## 
+## Attaching package: 'lubridate'
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+```
 
 - The objective of our application is to visualize the evolution of covid19 epidemic around the world.
 
@@ -23,7 +50,7 @@ knit        : slidify::knit2slides
 
 - But we finally work with this processed data file that can be found on [github](https://github.com/AntoninPrunet/covid19/blob/master/data/covid_data.csv).
 
-- [User interface](https://github.com/AntoninPrunet/covid19/blob/master/ui.R) and [server](https://github.com/AntoninPrunet/covid19/blob/master/server.R) files for the app can also be found on the same [github repository](https://github.com/AntoninPrunet/covid19).
+- [User interface](https://github.com/AntoninPrunet/covid19_presentation/blob/master/ui.R) and [server](https://github.com/AntoninPrunet/covid19_presentation/blob/master/server.R) files for the app can also be found on the same [github repository](https://github.com/AntoninPrunet/covid19_presentation).
 
 - To get started, you can play with the date slider on the left sidebar panel, change the selected countries you wish to observe in the first chart and modify the three other parameters which result in `2^3 = 8` different kinds of observations.
 
@@ -60,6 +87,32 @@ knit        : slidify::knit2slides
 
 ```r
 library(plotly, quiet=TRUE)
+```
+
+```
+## 
+## Attaching package: 'plotly'
+```
+
+```
+## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+```
+
+```
+## The following object is masked from 'package:stats':
+## 
+##     filter
+```
+
+```
+## The following object is masked from 'package:graphics':
+## 
+##     layout
+```
+
+```r
 library(ggplot2, quiet=TRUE)
 p <- ggplot(data = data1, aes(date, value, color=location)) +
             geom_line() + ylab("Total Deaths") +
@@ -86,14 +139,14 @@ plot(geo, tag = 'chart')
 ```
 
 <!-- GeoChart generated in R 3.6.3 by googleVis 0.6.5 package -->
-<!-- Sat Jun 27 05:54:55 2020 -->
+<!-- Sat Jun 27 06:52:56 2020 -->
 
 
 <!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID76102bbdfbb8 () {
+function gvisDataGeoChartID7add4b0e57a7 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -941,8 +994,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID76102bbdfbb8() {
-var data = gvisDataGeoChartID76102bbdfbb8();
+function drawChartGeoChartID7add4b0e57a7() {
+var data = gvisDataGeoChartID7add4b0e57a7();
 var options = {};
 options["width"] = 900;
 options["height"] = 300;
@@ -950,7 +1003,7 @@ options["projection"] = "kavrayskiy-vii";
 options["colorAxis"] = {colors:['white','brown']};
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID76102bbdfbb8')
+    document.getElementById('GeoChartID7add4b0e57a7')
     );
     chart.draw(data,options);
     
@@ -974,9 +1027,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID76102bbdfbb8);
+callbacks.push(drawChartGeoChartID7add4b0e57a7);
 })();
-function displayChartGeoChartID76102bbdfbb8() {
+function displayChartGeoChartID7add4b0e57a7() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1000,10 +1053,10 @@ callbacks.shift()();
 </script>
  
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID76102bbdfbb8"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID7add4b0e57a7"></script>
  
 <!-- divChart -->
   
-<div id="GeoChartID76102bbdfbb8" 
+<div id="GeoChartID7add4b0e57a7" 
   style="width: 900; height: 300;">
 </div>
