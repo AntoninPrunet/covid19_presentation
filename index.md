@@ -16,33 +16,6 @@ knit        : slidify::knit2slides
 
 
 
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     date, intersect, setdiff, union
-```
 
 - The objective of our application is to visualize the evolution of covid19 epidemic around the world.
 
@@ -87,32 +60,6 @@ knit        : slidify::knit2slides
 
 ```r
 library(plotly, quiet=TRUE)
-```
-
-```
-## 
-## Attaching package: 'plotly'
-```
-
-```
-## The following object is masked from 'package:ggplot2':
-## 
-##     last_plot
-```
-
-```
-## The following object is masked from 'package:stats':
-## 
-##     filter
-```
-
-```
-## The following object is masked from 'package:graphics':
-## 
-##     layout
-```
-
-```r
 library(ggplot2, quiet=TRUE)
 p <- ggplot(data = data1, aes(date, value, color=location)) +
             geom_line() + ylab("Total Deaths") +

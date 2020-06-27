@@ -51,30 +51,7 @@
   </hgroup>
   
   <article data-timings="">
-    <pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union
-</code></pre>
-
-<ul>
+    <ul>
 <li><p>The objective of our application is to visualize the evolution of covid19 epidemic around the world.</p></li>
 <li><p>The initial data originates from a csv file that can be found on <a href="https://covid.ourworldindata.org/data/owid-covid-data.csv">Our world in data website</a>.</p></li>
 <li><p>But we finally work with this processed data file that can be found on <a href="https://github.com/AntoninPrunet/covid19_presentation/blob/master/data/covid_data.csv">github</a>.</p></li>
@@ -123,28 +100,7 @@
   
   <article data-timings="">
     <pre><code class="r">library(plotly, quiet=TRUE)
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;
-</code></pre>
-
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot
-</code></pre>
-
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter
-</code></pre>
-
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout
-</code></pre>
-
-<pre><code class="r">library(ggplot2, quiet=TRUE)
+library(ggplot2, quiet=TRUE)
 p &lt;- ggplot(data = data1, aes(date, value, color=location)) +
             geom_line() + ylab(&quot;Total Deaths&quot;) +
             geom_vline(xintercept = as.numeric(ymd(&quot;2020-06-02&quot;))) + theme_bw()

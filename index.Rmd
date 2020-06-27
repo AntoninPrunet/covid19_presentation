@@ -15,7 +15,7 @@ knit        : slidify::knit2slides
 ## Getting Started
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE}
 library(dplyr, quiet=TRUE)
 library(lubridate, quiet=TRUE)
 
@@ -73,7 +73,7 @@ data2 <- filter(data,
 
 ## Plotly output for `plot`
 
-```{r fig.height=4, fig.align="center", fig.height=4.2, fig.width=9}
+```{r fig.height=4, fig.align="center", fig.height=4.2, fig.width=9, message=FALSE}
 library(plotly, quiet=TRUE)
 library(ggplot2, quiet=TRUE)
 p <- ggplot(data = data1, aes(date, value, color=location)) +
