@@ -34,8 +34,11 @@ shinyServer(function(input, output) {
         ggplotly(ggplot(data=selected_data1(),aes(date,value, color=location)) +
             geom_line() +
             ylab(as.character(unique(selected_data1()$variable)[1])) +
-            geom_vline(xintercept = as.numeric((input$date))) +
-            theme_bw())
+            geom_vline(xintercept = as.numeric((input$date)),color="grey") +
+            theme(plot.background = element_rect(fill = "black"),
+                  panel.background = element_rect(fill = "black"),
+                  panel.grid.major = element_line(colour = "black"),
+                  legend.key = element_rect(fill = "black")))
         })
 
     
@@ -44,7 +47,8 @@ shinyServer(function(input, output) {
                      locationvar = "location",
                      colorvar = "value",
                      option = list(projection="kavrayskiy-vii",
-                                   colorAxis="{colors:['white','brown']}"))
+                                   colorAxis="{colors:['whitesmoke','darkred']}",
+                                   backgroundColor="black"))
         })
 })
 
